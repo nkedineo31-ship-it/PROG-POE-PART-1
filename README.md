@@ -1,1 +1,4 @@
-# PROG-POE-PART-1
+#PART 2
+Added messaging atrributes
+Methods and classes
+Navigations
