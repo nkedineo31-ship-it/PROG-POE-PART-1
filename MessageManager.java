@@ -1,21 +1,61 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.quickht;
+package com.quickchat;
 
-/**
- *
- * @author Student
- */
-class MessageManager {
 
-    String getLongestMessage(int sentCount) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    String searchMessagesByRecipient(String recipient, int sentCount, String[] sentMessages) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
+
+public class MessageManager {
+
+    private String[] sentMessages;
+    private String[] disregardedMessages;
+    private String[] storedMessages;
+    private String[] messageHashes;
+    private String[] messageIDs;
+
+    private int sentCount;
+    private int disregardedCount;
+    private int storedCount;
+
+    public MessageManager(int size) {
+
+        sentMessages = new String[size];
+        disregardedMessages = new String[size];
+        storedMessages = new String[size];
+        messageHashes = new String[size];
+        messageIDs = new String[size];
+
+        sentCount = 0;
+        disregardedCount = 0;
+        storedCount = 0;
+    }
+}
+
+public String getLongestMessage(int sentCount) {
+
+    String longest = "";
+
+    for (int i = 0; i < sentCount; i++) {
+        String[] sentMessages = null;
+
+        if (sentMessages[i].length() > longest.length()) {
+
+            longest = sentMessages[i];
+        }
+    }
+
+    return longest;
+}
+
+public String searchMessagesByRecipient(String recipient, int sentCount, String[] sentMessages) {
+
+    String results = "";
+
+    for (int i = 0; i < sentCount; i++) {
+
+        if (sentRecipients[i].equals(recipient)) {
+
+            results += sentMessages[i] + "\n";
+        }
+    }
+
+    return results;
 }
