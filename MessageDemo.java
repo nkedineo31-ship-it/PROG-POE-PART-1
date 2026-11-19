@@ -3,7 +3,7 @@
  */
 
 
-import com.mycompany.messagedemo.Message;
+import com.mycompany.quickchat.Message;
 import java.util.Scanner;
 
 /**
@@ -35,11 +35,12 @@ public class MessageDemo {
                   recipient = input.nextLine();
                   
                   messageObject = new Message (i, recipient, "Temporary message");
-                  System.out.println(messageObject.isCheckRecipientCell());
-            }while(!messageObject.isCheckRecipientValid());
+                  System.out.println(messageObject.checkRecipientCell());
+            }while(!messageObject.isRecipientValid());
               
             String messageText;
-            
+            String messageID = messageObject.generateMessageID();
+            String messageHash = messageObject.createMessageHash();
             do{
                 System.out.println("Enter your message: ");
                 messageText = input.nextLine();
@@ -54,8 +55,8 @@ public class MessageDemo {
               System.out.println("Generate Information");
               System.out.println("====================");
               
-              System.out.println("Message ID: "+ finalMessage.getMessageID());
-              System.out.println("Message Hash: "+ finalMessage.getMessageHash());
+              System.out.println("Message ID: "+ finalMessage.generateMessageID());
+              System.out.println("Message Hash: "+ finalMessage.createMessageHash());
               
               System.out.println();
               System.out.println("What would you like to do now?");
@@ -76,7 +77,6 @@ public class MessageDemo {
                   System.out.println(finalMessage.sentMessage(0));
               }else if (option ==2){
                   System.out.println(finalMessage.sentMessage(2));
-                  System.out.println(finalMessage.storeMessage());
               }else {
                   System.out.println("Invalid option.");
                 
